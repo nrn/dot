@@ -19,7 +19,7 @@ function sym (file) {
 
 function main () {
   sh.mkdir(OLD)
-  ;['.vimrc', '.gitconfig', '.vim', '.jshintrc']
+  ;['.vimrc', '.gitconfig', '.vim' ]
     .forEach(backup)
 }
 
