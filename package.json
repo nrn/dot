@@ -1,0 +1,12 @@
+{ "name": "dot"
+, "version": "0.0.1a"
+, "main": "make.js"
+, "scripts": { "test": "./node_modules/.bin/tap ./test" }
+, "dependencies": { "shelljs": "*" }
+, "devDependencies": { "tap": "*" }
+, "engines": { "node": "~0.8" }
+, "repository":
+  { "type": "git"
+  , "url": "git://github.com/nrn/dot.git"
+  }
+}
