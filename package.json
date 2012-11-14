@@ -1,7 +1,10 @@
 { "name": "dot"
 , "version": "0.0.1a"
-, "main": "make.js"
-, "scripts": { "test": "./node_modules/.bin/tap ./test" }
+, "main": "install.js"
+, "scripts":
+  { "test": "./node_modules/.bin/tap ./test"
+  , "start": "node install.js"
+  }
 , "dependencies": { "shelljs": "*" }
 , "devDependencies": { "tap": "*" }
 , "engines": { "node": "~0.8" }
