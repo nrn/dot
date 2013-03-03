@@ -33,12 +33,13 @@ set tabstop=2
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
-" Highlight searches
+
+" Search
 set hlsearch
-" Ignore case of searches
 set ignorecase
-" Highlight dynamically as pattern is typed
+set smartcase
 set incsearch
+
 " Always show status line
 set laststatus=2
 " Enable mouse in all modes
@@ -67,6 +68,11 @@ if exists('+colorcolumn')
   set colorcolumn=80
 endif
 
+" Term color
+if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
+  set t_Co=256
+endif
+
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
@@ -90,19 +96,34 @@ endfunction
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace ()
-	let save_cursor = getpos(".")
-	let old_query = getreg('/')
-	:%s/\s\+$//e
-	call setpos('.', save_cursor)
-	call setreg('/', old_query)
+  let save_cursor = getpos(".")
+  let old_query = getreg('/')
+  :%s/\s\+$//e
+  call setpos('.', save_cursor)
+  call setreg('/', old_query)
 endfunction
 noremap <leader>ss :call StripWhitespace ()<CR>
+
+" Settings toggles
+nmap \l :setlocal number!<CR>
+nmap \o :set paste!<CR>
+
+nmap \q :nohlsearch<CR>
+
+nmap \t :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
+nmap \T :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
+nmap \M :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
+nmap \m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
+
+" Buffer Navigation
+nmap <C-n> :bnext<CR>
+nmap <C-p> :bprev<CR>
 
 " Mash jk to escape
 inoremap jk <esc>
 inoremap kj <esc>
 
-" Easy navication in split screen
+" Easy navigation in split screen
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
