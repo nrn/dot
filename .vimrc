@@ -57,12 +57,6 @@ set showmode
 " Show the filename in the window titlebar
 set title
 
-" Use relative line numbers
-"if exists("&relativenumber")
-"  set relativenumber
-"  au BufReadPost * set relativenumber
-"endif
-
 " Color 80th column
 if exists('+colorcolumn')
   set colorcolumn=80
@@ -138,16 +132,10 @@ nnoremap  <Down> gj
 nnoremap  <Up> gk
 vnoremap  <Down> gj
 vnoremap  <Up> gk
-" inoremap  <Down> <C-o>gj
-" inoremap  <Up> <C-o>gk
-
 
 nmap <f2> :w<cr>:!node %<cr>
 nmap <f3> :w<cr>:!coffee %<cr>
 nmap <f6> :w<cr>:!bundle exec rspec spec<cr>
-"nmap <f3> o<C-R>=strftime("%s")<CR><Esc>
-"nmap <f6> :w<cr>:!dashku -p<cr>
-"nmap <f7> :w<cr>:!dashku -t<cr>
 nmap <f4> :w<cr>:!npm test<cr>
 nmap <f5> :w<cr>:!npm start<cr>
 nmap <f12> :w<cr>:!git commit -a && git push<cr>
