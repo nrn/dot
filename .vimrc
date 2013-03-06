@@ -109,6 +109,8 @@ nmap \T :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
 nmap \M :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
 nmap \m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
 
+nmap \s :set spell!<CR>
+
 " Buffer Navigation
 nmap <C-n> :bnext<CR>
 nmap <C-p> :bprev<CR>
@@ -139,6 +141,10 @@ nmap <f6> :w<cr>:!bundle exec rspec spec<cr>
 nmap <f4> :w<cr>:!npm test<cr>
 nmap <f5> :w<cr>:!npm start<cr>
 nmap <f12> :w<cr>:!git commit -a && git push<cr>
+
+" Still playing w/ this. closure compiler.jar not included
+let g:syntastic_javascript_checker = "closurecompiler"
+let g:syntastic_javascript_closure_compiler_path = './.vim/compiler.jar'
 
 " Pathogen
 call pathogen#infect()
