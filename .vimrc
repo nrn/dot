@@ -38,11 +38,13 @@ set title
 set ttyfast
 if exists("&undodir")
   set undodir=~/.vim/undo
+  set undofile
+  set undolevels=1000
+  set undoreload=10000
 endif
 set wildmenu
 
 " Functions
-autocmd BufReadPre * if system("head -c 9 " . expand("<afile>")) == "VimCrypt~" | call Encrypted() | endif
 function Encrypted()
   setlocal noswapfile
   set viminfo=
@@ -59,6 +61,8 @@ function MyFoldText()
   let line = v:foldend - v:foldstart
   return v:folddashes . line 
 endfunction
+
+autocmd BufReadPre * if system("head -c 9 " . expand("<afile>")) == "VimCrypt~" | call Encrypted() | endif
 
 function! StripWhitespace ()
   let save_cursor = getpos(".")
@@ -96,6 +100,18 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" window
+nmap <leader>sw<left>  :topleft  vnew<CR>
+nmap <leader>sw<right> :botright vnew<CR>
+nmap <leader>sw<up>    :topleft  new<CR>
+nmap <leader>sw<down>  :botright new<CR>
+
+" buffer
+nmap <leader>s<left>   :leftabove  vnew<CR>
+nmap <leader>s<right>  :rightbelow vnew<CR>
+nmap <leader>s<up>     :leftabove  new<CR>
+nmap <leader>s<down>   :rightbelow new<CR>
 
 " Reselect visual block after indent/outdent
 vnoremap < <gv
