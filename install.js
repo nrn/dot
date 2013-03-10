@@ -21,7 +21,7 @@ function main () {
     console.log(output)
     sh.exec('git submodule update', {async: true})
   })
-  ;['.vimrc', '.gitconfig', '.vim' ]
+  ;['.vimrc', '.gitconfig', '.vim', '.bash_alias' ]
     .forEach(backup)
 }
 
