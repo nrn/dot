@@ -130,10 +130,6 @@ nmap <f5> :w<cr>:!npm start<cr>
 nmap <f6> :w<cr>:!bundle exec rspec spec<cr>
 nmap <f12> :w<cr>:!git commit -a && git push<cr>
 
-" Still playing w/ this. closure compiler.jar not included
-let g:syntastic_javascript_checker = "closurecompiler"
-let g:syntastic_javascript_closure_compiler_path = './.vim/compiler.jar'
-
 " Pathogen
 call pathogen#infect()
 syntax on
