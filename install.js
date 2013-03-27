@@ -5,6 +5,16 @@ var path = require('path')
   , sh = require('shelljs')
   , HOME = process.env.HOME
   , OLD = path.join(HOME, 'old.dot')
+  , BASHRC = path.join(HOME, '.bashrc')
+
+sh.mkdir(OLD)
+sh.exec('git submodule init', function (code, output) {
+  console.log(output)
+  sh.exec('git submodule update', {async: true})
+})
+;['.vimrc', '.gitconfig', '.vim', '.bash_aliases', '.fonts' ]
+  .forEach(backup)
+sh.grep('.bash_aliases', BASHRC) || fs.appendFileSyn(BASHRC, '\n. ~/.bash_aliases\n')
 
 function backup (file) {
   sh.mv(path.join(HOME, file), path.join(OLD, file))
@@ -15,14 +25,3 @@ function sym (file) {
   fs.symlink(path.join(__dirname, file), path.join(HOME, file))
 }
 
-function main () {
-  sh.mkdir(OLD)
-  sh.exec('git submodule init', function (code, output) {
-    console.log(output)
-    sh.exec('git submodule update', {async: true})
-  })
-  ;['.vimrc', '.gitconfig', '.vim', '.bash_aliases', '.fonts' ]
-    .forEach(backup)
-
-
-main()
