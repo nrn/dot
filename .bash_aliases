@@ -1,4 +1,5 @@
 alias l='ls -ltrahG'
+set -o vi
 
 #git config --global url.https://github.com/.insteadOf git://github.com/
 
