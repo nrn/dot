@@ -2,17 +2,17 @@
 	path = vim-pathogen
 	url = https://github.com/tpope/vim-pathogen
 [submodule ".vim/bundle/supertab"]
-	path = .vim/bundle/supertab
+	path = home/.vim/bundle/supertab
 	url = https://github.com/ervandew/supertab
 [submodule ".vim/bundle/coffee-script"]
-	path = .vim/bundle/coffee-script
+	path = home/.vim/bundle/coffee-script
 	url = https://github.com/kchmck/vim-coffee-script
 [submodule ".vim/bundle/vim-jade"]
-	path = .vim/bundle/vim-jade
+	path = home/.vim/bundle/vim-jade
 	url = git@github.com:digitaltoad/vim-jade
 [submodule ".vim/bundle/vim-markdown"]
-	path = .vim/bundle/vim-markdown
+	path = home/.vim/bundle/vim-markdown
 	url = git@github.com:tpope/vim-markdown
 [submodule ".vim/bundle/syntastic"]
-	path = .vim/bundle/syntastic
+	path = home/.vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git

@@ -12,8 +12,9 @@ sh.exec('git submodule init', function (code, output) {
   console.log(output)
   sh.exec('git submodule update', {async: true})
 })
-;['.vimrc', '.gitconfig', '.vim', '.bash_aliases', '.fonts' ]
-  .forEach(backup)
+
+sh.ls('-A', 'home').forEach(backup)
+
 sh.grep('.bash_aliases', BASHRC) || fs.appendFileSyn(BASHRC, '\n. ~/.bash_aliases\n')
 
 function backup (file) {
@@ -22,6 +23,6 @@ function backup (file) {
 }
 
 function sym (file) {
-  fs.symlink(path.join(__dirname, file), path.join(HOME, file))
+  fs.symlink(path.join(__dirname, 'home', file), path.join(HOME, file))
 }
 
