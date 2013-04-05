@@ -17,7 +17,7 @@ sh.ls('-A', 'home').forEach(backup)
 
 sh.grep('.bash_aliases', BASHRC) || fs.appendFileSyn(BASHRC, '\n. ~/.bash_aliases\n')
 
-sh.cd('./home/.vim/tern/vim')
+sh.cd('./home/.vim/tern')
 sh.exec('npm install')
 
 
