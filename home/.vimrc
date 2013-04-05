@@ -136,3 +136,5 @@ syntax on
 filetype indent on
 filetype plugin indent on
 
+so ~/.vim/tern/vim/tern.vim
+

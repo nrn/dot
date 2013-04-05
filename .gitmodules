@@ -16,3 +16,6 @@
 [submodule ".vim/bundle/syntastic"]
 	path = home/.vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "home/.vim/tern"]
+	path = home/.vim/tern
+	url = git@github.com:marijnh/tern
