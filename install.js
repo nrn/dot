@@ -8,10 +8,7 @@ var path = require('path')
   , BASHRC = path.join(HOME, '.bashrc')
 
 sh.mkdir(OLD)
-sh.exec('git submodule init', function (code, output) {
-  console.log(output)
-  sh.exec('git submodule update', {async: true})
-})
+sh.exec('git submodule update --init')
 
 sh.ls('-A', 'home').forEach(backup)
 
@@ -23,6 +20,6 @@ function backup (file) {
 }
 
 function sym (file) {
-  fs.symlink(path.join(__dirname, 'home', file), path.join(HOME, file))
+  fs.symlinkSync(path.join(__dirname, 'home', file), path.join(HOME, file))
 }
 
