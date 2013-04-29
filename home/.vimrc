@@ -6,17 +6,17 @@ set binary
 if exists('+colorcolumn')
   set colorcolumn=80
 endif
-set cursorline
 set directory=~/.vim/swaps
 set encoding=utf-8 nobomb
 set esckeys
+"set cursorline
 set expandtab
 set gdefault
 set hlsearch
 set ignorecase
 set incsearch
 set laststatus=2
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_ " Show “invisible” characters
+set lcs=tab:▸\ ,trail:·,eol:$,nbsp:_ " Show “invisible” characters
 set list
 let mapleader=","
 set mouse=a
@@ -35,7 +35,7 @@ if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gno
 endif
 set tabstop=2
 set title
-set ttyfast
+"set ttyfast
 if exists("&undodir")
   set undodir=~/.vim/undo
   set undofile
@@ -135,6 +135,4 @@ call pathogen#infect()
 syntax on
 filetype indent on
 filetype plugin indent on
-
-so ~/.vim/tern/vim/tern.vim
 

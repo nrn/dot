@@ -15,7 +15,7 @@ sh.exec('git submodule init', function (code, output) {
 
 sh.ls('-A', 'home').forEach(backup)
 
-sh.grep('.bash_aliases', BASHRC) || fs.appendFileSyn(BASHRC, '\n. ~/.bash_aliases\n')
+sh.grep('.bash_aliases', BASHRC) || fs.appendFileSync(BASHRC, '\n. ~/.bash_aliases\n')
 
 sh.cd('./home/.vim/tern')
 sh.exec('npm install')

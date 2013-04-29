@@ -3,6 +3,8 @@ set -o vi
 
 #git config --global url.https://github.com/.insteadOf git://github.com/
 
+export PATH=~/bin:$PATH
+
 proxyserver="yourproxyserver.com:8080"
 
 function proxy(){
