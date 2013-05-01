@@ -8,7 +8,6 @@ var path = require('path')
   , BASHRC = path.join(HOME, '.bashrc')
 
 sh.mkdir(OLD)
-sh.exec('git submodule update --init')
 
 sh.ls('-A', 'home').forEach(backup)
 

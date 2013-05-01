@@ -16,3 +16,6 @@
 [submodule "home/.vim/bundle/tern_for_vim"]
 	path = home/.vim/bundle/tern_for_vim
 	url = https://github.com/marijnh/tern_for_vim
+[submodule "nave"]
+	path = nave
+	url = https://github.com/isaacs/nave
