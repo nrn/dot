@@ -8,5 +8,3 @@ fi
 
 npm install
 node install.js
-
-source ~/.bash_aliases
