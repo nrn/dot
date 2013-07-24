@@ -3,7 +3,7 @@ set -o vi
 
 #git config --global url.https://github.com/.insteadOf git://github.com/
 
-PATH="$HOME/bin:$PATH:$HOME/.bin"
+PATH="$HOME/bin:$PATH:$HOME/.bin:/usr/local/mysql/bin"
 
 proxyserver="yourproxyserver.com:8080"
 

@@ -1,3 +1,9 @@
 [user]
 	name = Nick Niemeir
 	email = nick.niemeir@gmail.com
+[url "https://github.com/"]
+	insteadOf = git://github.com/
+[remote "origin"]
+	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+[alias]
+	put = push origin HEAD
