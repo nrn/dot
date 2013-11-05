@@ -7,3 +7,5 @@
 	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
 [alias]
 	put = push origin HEAD
+[github]
+	user = nrn
