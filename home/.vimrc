@@ -113,15 +113,14 @@ nmap <leader>s<right>  :rightbelow vnew<CR>
 nmap <leader>s<up>     :leftabove  new<CR>
 nmap <leader>s<down>   :rightbelow new<CR>
 
-" Reselect visual block after indent/outdent
-vnoremap < <gv
-vnoremap > >gv
-
 " Arrow keys move visible line
 nnoremap  <Down> gj
 nnoremap  <Up> gk
 vnoremap  <Down> gj
 vnoremap  <Up> gk
+
+nnoremap oo :only<cr>:next<cr>:Gdiff<cr>
+nnoremap OO :only<cr>:previous<cr>:Gdiff<cr>
 
 nmap <f2> :w<cr>:!node %<cr>
 nmap <f3> :w<cr>:!coffee %<cr>

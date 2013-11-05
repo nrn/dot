@@ -35,3 +35,8 @@ function proxyoff(){
   echo -e "\nProxy environment variable removed."
 }
 
+function review(){
+  files=`git status --porcelain | grep '^ M ' | sed -e 's/^ M //'`
+  vim $files +Gdiff
+}
+
