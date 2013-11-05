@@ -19,3 +19,6 @@
 [submodule "nave"]
 	path = nave
 	url = https://github.com/isaacs/nave
+[submodule "home/.vim/bundle/vim-fugitive"]
+	path = home/.vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
