@@ -5,6 +5,7 @@ set backupdir=~/.vim/backups
 set binary
 if exists('+colorcolumn')
   set colorcolumn=80
+  highlight ColorColumn ctermbg=211
 endif
 set directory=~/.vim/swaps
 set encoding=utf-8 nobomb
@@ -16,7 +17,7 @@ set hlsearch
 set ignorecase
 set incsearch
 set laststatus=2
-set lcs=tab:▸\ ,trail:·,eol:$,nbsp:_ " Show “invisible” characters
+set lcs=tab:▸\ ,trail:·,eol:⚔,nbsp:_ " Show “invisible” characters
 set list
 let mapleader=","
 set mouse=a
@@ -30,9 +31,7 @@ set shiftwidth=2
 set shortmess=atI
 set showmode
 set smartcase
-if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
-  set t_Co=256
-endif
+set t_Co=256
 set tabstop=2
 set title
 "set ttyfast
@@ -123,7 +122,7 @@ nnoremap oo :only<cr>:next<cr>:Gdiff<cr>
 nnoremap OO :only<cr>:previous<cr>:Gdiff<cr>
 
 nmap <f2> :w<cr>:!node %<cr>
-nmap <f3> :w<cr>:!coffee %<cr>
+nmap <f3> :w<cr>:!node debug %<cr>
 nmap <f4> :w<cr>:!npm test<cr>
 nmap <f5> :w<cr>:!npm start<cr>
 nmap <f6> :w<cr>:!bundle exec rspec spec<cr>

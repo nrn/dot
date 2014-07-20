@@ -8,3 +8,4 @@ fi
 
 npm install
 node install.js
+npm install -g browserify grunt gulp st beefy prefab
