@@ -16,7 +16,7 @@ set hlsearch
 set ignorecase
 set incsearch
 set laststatus=2
-set lcs=tab:▸\ ,trail:·,eol:$,nbsp:_ " Show “invisible” characters
+set lcs=tab:▸\ ,trail:·,eol:⚔,nbsp:_ " Show “invisible” characters
 set list
 let mapleader=","
 set mouse=a
@@ -127,6 +127,7 @@ nmap <f3> :w<cr>:!coffee %<cr>
 nmap <f4> :w<cr>:!npm test<cr>
 nmap <f5> :w<cr>:!npm start<cr>
 nmap <f6> :w<cr>:!bundle exec rspec spec<cr>
+nmap <f1> :call JsBeautify()<cr>
 nmap <f12> :w<cr>:!git commit -a && git push<cr>
 
 " Pathogen

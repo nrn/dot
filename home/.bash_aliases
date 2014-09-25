@@ -3,7 +3,9 @@ set -o vi
 
 #git config --global url.https://github.com/.insteadOf git://github.com/
 
-PATH="$HOME/bin:$PATH:$HOME/.bin:/usr/local/mysql/bin"
+PATH="$HOME/bin:/usr/local/bin:$PATH:$HOME/.bin:/usr/local/mysql/bin"
+
+DOCKER_HOST=tcp://localhost:55123
 
 proxyserver="yourproxyserver.com:8080"
 
@@ -36,7 +38,12 @@ function proxyoff(){
 }
 
 function review(){
-  files=`git status --porcelain | grep '^ M ' | sed -e 's/^ M //'`
+  files=`git diff --name-status | grep '^M' | sed -e 's/^M\S*//'`
   vim $files +Gdiff
+}
+
+function vimg() {
+ files=`git grep -Ie $1 | sed -e 's/:.*$//' | sort -u`
+ vim $files +/$1
 }
 
