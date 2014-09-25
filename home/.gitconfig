@@ -7,5 +7,13 @@
 	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
 [alias]
 	put = push origin HEAD
+	l = log --graph --pretty=format:'%Cred%h%Creset - %Cgreen%an%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	la = log --graph --pretty=format:'%Cred%h%Creset - %Cgreen%an%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --all
+	b = for-each-ref --sort=committerdate refs/heads/ --format='%(refname:short) :  %(objectname:short)'
 [github]
 	user = nrn
+[push]
+	default = nothing
+
+[core]
+	editor = vim

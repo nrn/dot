@@ -126,6 +126,7 @@ nmap <f3> :w<cr>:!node debug %<cr>
 nmap <f4> :w<cr>:!npm test<cr>
 nmap <f5> :w<cr>:!npm start<cr>
 nmap <f6> :w<cr>:!bundle exec rspec spec<cr>
+nmap <f1> :call JsBeautify()<cr>
 nmap <f12> :w<cr>:!git commit -a && git push<cr>
 
 " Pathogen
