@@ -7,6 +7,7 @@ if exists('+colorcolumn')
   set colorcolumn=80
   highlight ColorColumn ctermbg=211
 endif
+set cm=blowfish
 set directory=~/.vim/swaps
 set encoding=utf-8 nobomb
 set esckeys
@@ -33,6 +34,7 @@ set showmode
 set smartcase
 set t_Co=256
 set tabstop=2
+set tags+=~/github/tags
 set title
 "set ttyfast
 if exists("&undodir")
@@ -50,8 +52,8 @@ function Encrypted()
   set foldmethod=indent
   set foldlevel=0
   set foldclose=all
-  set fdo=insert
-  set fdl=1
+  "set fdo=insert
+  "set fdl=1
   set cms="hidden"
   set foldtext=MyFoldText()
 endfunction
@@ -118,6 +120,24 @@ nnoremap  <Up> gk
 vnoremap  <Down> gj
 vnoremap  <Up> gk
 
+" Visual mode pressing * or # searches for the current selection
+" Super useful! From an idea by Michael Naumann
+vnoremap <silent> * :call VisualSelection('f', '')<CR>
+vnoremap <silent> # :call VisualSelection('b', '')<CR>
+
+" Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
+nmap <M-k> mz:m-2<cr>`z
+nmap <M-j> mz:m+<cr>`z
+vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
+vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+
+if has("mac") || has("macunix")
+  nmap <D-j> <M-j>
+  nmap <D-k> <M-k>
+  vmap <D-j> <M-j>
+  vmap <D-k> <M-k>
+endif
+
 nnoremap oo :only<cr>:next<cr>:Gdiff<cr>
 nnoremap OO :only<cr>:previous<cr>:Gdiff<cr>
 
@@ -126,12 +146,44 @@ nmap <f3> :w<cr>:!node debug %<cr>
 nmap <f4> :w<cr>:!npm test<cr>
 nmap <f5> :w<cr>:!npm start<cr>
 nmap <f6> :w<cr>:!bundle exec rspec spec<cr>
-nmap <f1> :call JsBeautify()<cr>
+nmap <f11> :call JsBeautify()<cr>
 nmap <f12> :w<cr>:!git commit -a && git push<cr>
+
+" Syntax checking stuff
+let g:syntastic_javascript_checkers = ['eslint']
+
+let g:syntastic_check_on_wq = 0
 
 " Pathogen
 call pathogen#infect()
 syntax on
 filetype indent on
 filetype plugin indent on
+
+function! CmdLine(str)
+    exe "menu Foo.Bar :" . a:str
+    emenu Foo.Bar
+    unmenu Foo
+endfunction
+
+function! VisualSelection(direction, extra_filter) range
+    let l:saved_reg = @"
+    execute "normal! vgvy"
+
+    let l:pattern = escape(@", '\\/.*$^~[]')
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
+
+    if a:direction == 'b'
+        execute "normal ?" . l:pattern . "^M"
+    elseif a:direction == 'gv'
+        call CmdLine("Ack \"" . l:pattern . "\" " )
+    elseif a:direction == 'replace'
+        call CmdLine("%s" . '/'. l:pattern . '/')
+    elseif a:direction == 'f'
+        execute "normal /" . l:pattern . "^M"
+    endif
+
+    let @/ = l:pattern
+    let @" = l:saved_reg
+endfunction
 
