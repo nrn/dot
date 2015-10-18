@@ -154,10 +154,19 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 let g:syntastic_check_on_wq = 0
 
-" Pathogen
-call pathogen#infect()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'bling/vim-airline'
+
+call vundle#end()
 syntax on
-filetype indent on
 filetype plugin indent on
 
 function! CmdLine(str)
