@@ -9,11 +9,13 @@ if exists('+colorcolumn')
 endif
 set cm=blowfish
 set directory=~/.vim/swaps
+set diffopt+=vertical
 set encoding=utf-8 nobomb
 set esckeys
 "set cursorline
 set expandtab
 set gdefault
+set hidden
 set hlsearch
 set ignorecase
 set incsearch
@@ -60,7 +62,7 @@ endfunction
 
 function MyFoldText()
   let line = v:foldend - v:foldstart
-  return v:folddashes . line 
+  return v:folddashes . line
 endfunction
 
 autocmd BufReadPre * if system("head -c 9 " . expand("<afile>")) == "VimCrypt~" | call Encrypted() | endif
@@ -146,28 +148,44 @@ nmap <f3> :w<cr>:!node debug %<cr>
 nmap <f4> :w<cr>:!npm test<cr>
 nmap <f5> :w<cr>:!npm start<cr>
 nmap <f6> :w<cr>:!bundle exec rspec spec<cr>
-nmap <f11> :call JsBeautify()<cr>
-nmap <f12> :w<cr>:!git commit -a && git push<cr>
+nnoremap <F9> :UndotreeToggle<cr>
+nnoremap <silent> <F10> :YRShow<CR>
+nmap <f12> :w<cr>:!git commit -a && git put<cr>
 
 " Syntax checking stuff
 let g:syntastic_javascript_checkers = ['eslint']
-
 let g:syntastic_check_on_wq = 0
+
+let g:ctrlp_map = '<c-f>'
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_custom_ignore = '\v(node_modules|[\/]\.(git|hg|svn)$)'
+
+let g:NERDCustomDelimiters = {
+    \ 'javascript': { 'left': '// ', 'leftAlt': '/*', 'rightAlt': '*/' }
+    \ }
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'bling/vim-airline'
+Plugin 'ervandew/supertab'
+Plugin 'vim-scripts/YankRing.vim'
+Plugin 'mbbill/undotree'
+
+" To consider trying again later.
+" Plugin 'marijnh/tern_for_vim'
+" Plugin 'szw/vim-ctrlspace'
 
 call vundle#end()
 syntax on
 filetype plugin indent on
+" call tern#DefaultKeyMap('j')
 
 function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
@@ -195,4 +213,3 @@ function! VisualSelection(direction, extra_filter) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
-
