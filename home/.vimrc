@@ -83,8 +83,8 @@ nmap \o :set paste!<CR>
 nmap \q :nohlsearch<CR>
 
 nmap \t :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
-nmap \T :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
-nmap \M :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
+nmap \T :set noexpandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
+nmap \M :set noexpandtab tabstop=2 softtabstop=2 shiftwidth=2<CR>
 nmap \m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
 
 nmap \s :set spell!<CR>
@@ -127,11 +127,11 @@ vnoremap  <Up> gk
 vnoremap <silent> * :call VisualSelection('f', '')<CR>
 vnoremap <silent> # :call VisualSelection('b', '')<CR>
 
-" Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
-nmap <M-k> mz:m-2<cr>`z
-nmap <M-j> mz:m+<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+" Move a line of text using
+nmap <C-k> mz:m-2<cr>`z
+nmap <C-j> mz:m+<cr>`z
+vmap <C-j> :m'>+<cr>`<my`>mzgv`yo`z
+vmap <C-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
 if has("mac") || has("macunix")
   nmap <D-j> <M-j>
@@ -168,11 +168,12 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'vim-scripts/YankRing.vim'

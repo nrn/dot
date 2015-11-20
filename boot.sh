@@ -9,4 +9,4 @@ fi
 
 npm install
 node install.js
-npm install -g nave npm eslint js-beautify
+npm install -g nave npm eslint js-beautify standard-format
