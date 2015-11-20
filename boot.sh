@@ -9,4 +9,5 @@ fi
 
 npm install
 node install.js
+vim +PluginInstall +qall
 npm install -g nave npm eslint js-beautify standard-format
