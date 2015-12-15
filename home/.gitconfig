@@ -10,6 +10,8 @@
 	l = log --graph --pretty=format:'%Cred%h%Creset - %Cgreen%an%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	la = log --graph --pretty=format:'%Cred%h%Creset - %Cgreen%an%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --all
 	b = for-each-ref --sort=committerdate refs/heads/ --format='%(refname:short) :  %(objectname:short)'
+	wip = log --graph --pretty=format:'%Cred%h%Creset - %Cgreen%an%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --not master
+	wipa = log --graph --pretty=format:'%Cred%h%Creset - %Cgreen%an%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --all --not master
 [github]
 	user = nrn
 [push]
