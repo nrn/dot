@@ -38,12 +38,12 @@ function proxyoff(){
 }
 
 function review(){
-  files=`git diff --name-status | grep '^M' | sed -e 's/^M\S*//'`
+  files=`git diff --diff-filter=ACMTUXB --name-only --relative`
   vim $files +Gdiff
 }
 
 function vimg() {
- files=`git grep -Ie $1 | sed -e 's/:.*$//' | sort -u`
+ files=`git grep -Ie $1 --name-only`
  vim $files +/$1
 }
 
