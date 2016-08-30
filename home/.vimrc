@@ -20,8 +20,8 @@ set hlsearch
 set ignorecase
 set incsearch
 set laststatus=2
-set lcs=tab:▸\ ,trail:·,eol:⚔,nbsp:_ " Show “invisible” characters
-set list
+" set lcs=tab:▸\ ,trail:·,eol:⚔,nbsp:_ " Show “invisible” characters
+" set list
 let mapleader=","
 set mouse=a
 set noeol
@@ -147,7 +147,7 @@ nmap <f2> :w<cr>:!node %<cr>
 nmap <f3> :w<cr>:!node debug %<cr>
 nmap <f4> :w<cr>:!npm test<cr>
 nmap <f5> :w<cr>:!npm start<cr>
-nmap <f6> :w<cr>:!bundle exec rspec spec<cr>
+nmap <f6> :w<cr>:!babel-node %<cr>
 nnoremap <F9> :UndotreeToggle<cr>
 nnoremap <silent> <F10> :YRShow<CR>
 nmap <f12> :w<cr>:!git commit -a && git put<cr>
@@ -168,6 +168,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+" Plugin 'pmsorhaindo/syntastic-local-eslint.vim'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'

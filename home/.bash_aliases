@@ -47,6 +47,16 @@ function vimg() {
  vim $files +/$1
 }
 
+function lint_update() {
+  npm install -g \
+    eslint\
+    eslint-config-standard\
+    eslint-config-standard-react\
+    eslint-plugin-react\
+    eslint-plugin-standard\
+    babel-eslint
+}
+
 function start_agent {
   echo "Initialising new SSH agent..."
   /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
