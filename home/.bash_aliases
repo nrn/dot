@@ -54,6 +54,8 @@ function lint_update() {
     eslint-config-standard-react\
     eslint-plugin-react\
     eslint-plugin-standard\
+    eslint-plugin-promise\
+    eslint-config-esmanning\
     babel-eslint
 }
 
