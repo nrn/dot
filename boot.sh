@@ -3,11 +3,13 @@
 git clone https://github.com/VundleVim/Vundle.vim ./home/.vim/bundle/Vundle.vim
 git clone https://github.com/isaacs/nave
 
-if [ "x$(which node || true)" == "x" ]; then
-  ./nave/nave.sh usemain latest
-fi
+NODE_GLOBAL="$HOME/node-global"
+export PATH="$NODE_GLOBAL/bin:$PATH"
+mkdir "$NODE_GLOBAL"
+
+PREFIX="$NODE_GLOBAL" ./nave/nave.sh usemain 4
 
 npm install
 node install.js
 vim +PluginInstall +qall
-npm install -g nave npm eslint js-beautify standard-format
+npm install --prefix="$NODE_GLOBAL" -g nave npm eslint js-beautify standard-format readme

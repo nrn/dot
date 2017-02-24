@@ -3,10 +3,15 @@ set -o vi
 
 #git config --global url.https://github.com/.insteadOf git://github.com/
 
-PATH="$HOME/bin:/usr/local/bin:$PATH:$HOME/.bin:/usr/local/mysql/bin"
+export NPM_PACKAGES="$HOME/node-global"
+export NAVE_ROOT="$NPM_PACKAGES"
 
+PATH="$NPM_PACKAGES/bin:$HOME/bin:$HOMEv/github/brew/bin:/usr/local/bin:$PATH:$HOME/.bin:/usr/local/mysql/bin"
+
+unset MANPATH
+MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 DOCKER_HOST=tcp://localhost:55123
-
+NODE_PATH="$NODE_PATH:$NPM_PACKAGES/lib/node_modules"
 proxyserver="yourproxyserver.com:8080"
 
 function proxy(){
