@@ -1,12 +1,15 @@
 alias l='ls -ltrahG'
 set -o vi
+export EDITOR="vi"
 
 #git config --global url.https://github.com/.insteadOf git://github.com/
 
 export NPM_PACKAGES="$HOME/node-global"
 export NAVE_ROOT="$NPM_PACKAGES"
 
-PATH="$NPM_PACKAGES/bin:$HOME/bin:$HOMEv/github/brew/bin:/usr/local/bin:$PATH:$HOME/.bin:/usr/local/mysql/bin"
+alias nave="PREFIX=$NPM_PACKAGES nave"
+
+PATH="$NPM_PACKAGES/bin:$HOME/bin:$HOME/github/brew/bin:/usr/local/bin:$PATH:$HOME/.bin:/usr/local/mysql/bin"
 
 unset MANPATH
 MANPATH="$NPM_PACKAGES/share/man:$(manpath)"

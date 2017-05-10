@@ -17,5 +17,6 @@
 	user = nrn
 [push]
 	default = nothing
+	followTags = true
 [core]
 	editor = vim

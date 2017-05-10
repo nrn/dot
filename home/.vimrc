@@ -155,6 +155,7 @@ nmap <f12> :w<cr>:!git commit -a && git put<cr>
 " Syntax checking stuff
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_check_on_wq = 0
+let b:syntastic_javascript_eslint_exec = system('echo -n "`git rev-parse --show-toplevel`/node_modules/.bin/eslint"')
 
 let g:ctrlp_map = '<c-f>'
 let g:ctrlp_show_hidden = 1
