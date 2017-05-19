@@ -7,7 +7,7 @@ NODE_GLOBAL="$HOME/node-global"
 export PATH="$NODE_GLOBAL/bin:$PATH"
 mkdir "$NODE_GLOBAL"
 
-PREFIX="$NODE_GLOBAL" ./nave/nave.sh usemain 4
+PREFIX="$NODE_GLOBAL" ./nave/nave.sh usemain latest
 
 npm install
 node install.js
