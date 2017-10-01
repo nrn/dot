@@ -13,6 +13,7 @@
 	wip = log --graph --pretty=format:'%Cred%h%Creset - %Cgreen%an%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --not master
 	wipa = log --graph --pretty=format:'%Cred%h%Creset - %Cgreen%an%Creset - %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --all --not master
 	review = !vim `git diff --diff-filter=ACMTUXB --name-only` +Gdiff
+  aliases = !git config --get-regexp '^alias.' | sed s/^alias.//
 [github]
 	user = nrn
 [push]
