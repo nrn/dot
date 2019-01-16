@@ -7,7 +7,7 @@ if exists('+colorcolumn')
   set colorcolumn=80
   highlight ColorColumn ctermbg=211
 endif
-set cm=blowfish
+set cm=blowfish2
 set directory=~/.vim/swaps
 set diffopt+=vertical
 set encoding=utf-8 nobomb
@@ -148,14 +148,17 @@ nmap <f3> :w<cr>:!node debug %<cr>
 nmap <f4> :w<cr>:!npm test<cr>
 nmap <f5> :w<cr>:!npm start<cr>
 nmap <f6> :w<cr>:!babel-node %<cr>
+nmap <f7> :w<cr>:!ts-node %<cr>
 nnoremap <F9> :UndotreeToggle<cr>
 nnoremap <silent> <F10> :YRShow<CR>
 nmap <f12> :w<cr>:!git commit -a && git put<cr>
 
 " Syntax checking stuff
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_typescript_checkers = ['tslint']
 let g:syntastic_check_on_wq = 0
 let b:syntastic_javascript_eslint_exec = system('echo -n "`git rev-parse --show-toplevel`/node_modules/.bin/eslint"')
+let b:syntastic_javascript_tslint_exec = system('echo -n "`git rev-parse --show-toplevel`/node_modules/.bin/tslint"')
 
 let g:ctrlp_map = '<c-f>'
 let g:ctrlp_show_hidden = 1
@@ -171,6 +174,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Plugin 'pmsorhaindo/syntastic-local-eslint.vim'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-rhubarb'
+Plugin 'Shougo/vimproc.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
@@ -180,6 +185,9 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'vim-scripts/YankRing.vim'
 Plugin 'mbbill/undotree'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/tsuquyomi'
+" Plugin 'w0rp/ale'
 
 " To consider trying again later.
 " Plugin 'marijnh/tern_for_vim'

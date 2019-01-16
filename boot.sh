@@ -12,4 +12,4 @@ PREFIX="$NODE_GLOBAL" ./nave/nave.sh usemain latest
 npm install
 node install.js
 vim +PluginInstall +qall
-npm install --prefix="$NODE_GLOBAL" -g nave npm eslint js-beautify standard-format readme
+npm install --prefix="$NODE_GLOBAL" -g nave npm js-beautify standard-format readme tldr

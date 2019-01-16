@@ -1,15 +1,23 @@
-{ "name": "dot"
-, "version": "0.0.1a"
-, "main": "install.js"
-, "scripts":
-  { "test": "./node_modules/.bin/tap ./test"
-  , "start": "node install.js"
-  }
-, "dependencies": { "shelljs": "*" }
-, "devDependencies": { "tap": "*" }
-, "engines": { "node": "~0.8" }
-, "repository":
-  { "type": "git"
-  , "url": "git://github.com/nrn/dot.git"
+{
+  "name": "dot",
+  "version": "0.0.1a",
+  "main": "install.js",
+  "private": true,
+  "scripts": {
+    "test": "./node_modules/.bin/tap ./test",
+    "start": "node install.js"
+  },
+  "dependencies": {
+    "shelljs": "*"
+  },
+  "devDependencies": {
+    "tap": "*"
+  },
+  "engines": {
+    "node": "~0.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nrn/dot.git"
   }
 }

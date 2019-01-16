@@ -9,12 +9,12 @@ export NAVE_ROOT="$NPM_PACKAGES"
 
 alias nave="PREFIX=$NPM_PACKAGES nave"
 
-PATH="$NPM_PACKAGES/bin:$HOME/bin:$HOME/github/brew/bin:/usr/local/bin:$PATH:$HOME/.bin:/usr/local/mysql/bin"
+PATH="$HOME/bin:$NPM_PACKAGES/bin:$HOME/github/brew/bin:/usr/local/bin:$PATH:$HOME/.bin:/usr/local/mysql/bin"
 
 unset MANPATH
 MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 DOCKER_HOST=tcp://localhost:55123
-NODE_PATH="$NODE_PATH:$NPM_PACKAGES/lib/node_modules"
+# NODE_PATH="$NODE_PATH:$NPM_PACKAGES/lib/node_modules"
 proxyserver="yourproxyserver.com:8080"
 
 function proxy(){
