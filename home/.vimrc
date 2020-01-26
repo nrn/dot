@@ -7,7 +7,7 @@ if exists('+colorcolumn')
   set colorcolumn=80
   highlight ColorColumn ctermbg=211
 endif
-set cm=blowfish
+set cm=blowfish2
 set directory=~/.vim/swaps
 set diffopt+=vertical
 set encoding=utf-8 nobomb
@@ -87,6 +87,8 @@ nmap \T :set noexpandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
 nmap \M :set noexpandtab tabstop=2 softtabstop=2 shiftwidth=2<CR>
 nmap \m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
 
+autocmd FileType rust set expandtab tabstop=4 shiftwidth=4 softtabstop=4
+
 nmap \s :set spell!<CR>
 
 " Remaps
@@ -143,11 +145,16 @@ endif
 nnoremap oo :only<cr>:next<cr>:Gdiff<cr>
 nnoremap OO :only<cr>:previous<cr>:Gdiff<cr>
 
-nmap <f2> :w<cr>:!node %<cr>
-nmap <f3> :w<cr>:!node debug %<cr>
-nmap <f4> :w<cr>:!npm test<cr>
-nmap <f5> :w<cr>:!npm start<cr>
-nmap <f6> :w<cr>:!babel-node %<cr>
+autocmd FileType javascript nmap <buffer> <f2> :w<cr>:!node %<cr>
+autocmd FileType rust nmap <buffer> <f2> :w<cr>:!cargo test %:t:r<cr>
+autocmd FileType javascript nmap <buffer> <f3> :w<cr>:!node debug %<cr>
+autocmd FileType rust nmap <buffer> <f3> :w<cr>:!cargo check<cr>
+autocmd FileType javascript nmap <buffer> <f4> :w<cr>:!npm test<cr>
+autocmd FileType rust nmap <buffer> <f4> :w<cr>:!cargo test<cr>
+autocmd FileType javascript nmap <buffer> <f5> :w<cr>:!npm start<cr>
+autocmd FileType rust nmap <buffer> <f5> :w<cr>:!cargo run<cr>
+autocmd FileType javascript nmap <buffer> <f6> :w<cr>:!npm run lint<cr>
+autocmd FileType rust nmap <buffer> <f6> :w<cr>:!cargo clippy<cr>
 nnoremap <F9> :UndotreeToggle<cr>
 nnoremap <silent> <F10> :YRShow<CR>
 nmap <f12> :w<cr>:!git commit -a && git put<cr>
